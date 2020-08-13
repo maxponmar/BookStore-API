@@ -8,7 +8,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>D:\Windows\Desktop\BookStoreAPI\BookStore-API\BookStore-API\BookStore-API.xml</DocumentationFile>
-    <NoWarn>1701;1702;1591</NoWarn>
+    <NoWarn>1701;1702;1591;1572;1573</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
