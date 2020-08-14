@@ -141,5 +141,4 @@ namespace BookStore_API.Controllers
             return StatusCode(500, $"Something went wrong.\nPlease contact the administrator");
         }
     }    
-
 }
