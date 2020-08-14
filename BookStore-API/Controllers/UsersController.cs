@@ -39,10 +39,11 @@ namespace BookStore_API.Controllers
         }
 
         /// <summary>
-        /// User Login endpoint
+        /// User Login
         /// </summary>
         /// <param name="userDTO"></param>
         /// <returns></returns>
+        [Route("login")]
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserDTO userDTO)
@@ -50,7 +51,7 @@ namespace BookStore_API.Controllers
             string location = GetControllerActionNames();
             try
             {               
-                var username = userDTO.Username;
+                var username = userDTO.EmailAdress;
                 var password = userDTO.Password;
                 _loggerService.LogInfo($"{location}: User {username} login attempt");
                 var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
@@ -63,6 +64,41 @@ namespace BookStore_API.Controllers
                 }
                 _loggerService.LogWarn($"{location}: User {username} not authenticated");
                 return Unauthorized(userDTO);
+            }
+            catch (Exception e)
+            {
+                return InternalError($"{location}: {e.Message} - {e.InnerException}");
+            }
+        }
+
+        /// <summary>
+        /// User registration
+        /// </summary>
+        /// <param name="userDTO"></param>
+        /// <returns></returns>
+        [Route("register")]
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] UserDTO userDTO)
+        {
+            string location = GetControllerActionNames();
+            try
+            {
+                var username = userDTO.EmailAdress;
+                var password = userDTO.Password;
+                var user = new IdentityUser { Email = username, UserName = username };
+                _loggerService.LogInfo($"{location}: Registration attempt for {username}");
+                var result = await _userManager.CreateAsync(user, password);
+                if (!result.Succeeded)
+                {                    
+                    foreach (var error in result.Errors)
+                    {
+                        _loggerService.LogError($"{location}: {error.Code} - {error.Description}");
+                    }
+                    return InternalError($"{location}: User {username} registration failed");
+                }
+                _loggerService.LogInfo($"{location}: Successfully registration of wser {username}");
+                return Ok(new { result.Succeeded });                
             }
             catch (Exception e)
             {
