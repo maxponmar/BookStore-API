@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookStore_API.Controllers
 {
     /// <summary>
-    /// This is a test API controller
+    /// This is an auto-generated API controller for testing
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +23,7 @@ namespace BookStore_API.Controllers
         }
 
         /// <summary>
-        /// Gets two strings
+        /// TEST: Get 2 strings
         /// </summary>
         /// <returns></returns>
         // GET: api/<HomeController>
@@ -35,6 +35,11 @@ namespace BookStore_API.Controllers
         }
 
         // GET api/<HomeController>/5
+        /// <summary>
+        /// TEST: return "value"
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public string Get(int id)
         {
@@ -43,6 +48,10 @@ namespace BookStore_API.Controllers
         }
 
         // POST api/<HomeController>
+        /// <summary>
+        /// TEST: Does nothing
+        /// </summary>
+        /// <param name="value"></param>
         [HttpPost]
         public void Post([FromBody] string value)
         {
@@ -50,12 +59,21 @@ namespace BookStore_API.Controllers
         }
 
         // PUT api/<HomeController>/5
+        /// <summary>
+        /// Does nothing
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/<HomeController>/5
+        /// <summary>
+        /// DoesNothing
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
