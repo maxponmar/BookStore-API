@@ -33,7 +33,6 @@ namespace BookStore_API.Controllers
             _mapper = mapper;
         }
 
-
         /// <summary>
         /// Get All Authors
         /// </summary>
