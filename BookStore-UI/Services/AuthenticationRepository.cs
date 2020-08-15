@@ -27,13 +27,18 @@ namespace BookStore_UI.Services
         }
         public async Task<bool> Register(RegistrationModel user)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post
-                , Endpoints.RegisterEndpoint);
-            request.Content = new StringContent(JsonConvert.SerializeObject(user)
-                , Encoding.UTF8, "application/json");
+            //HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post
+            //    , Endpoints.RegisterEndpoint);
+            //request.Content = new StringContent(JsonConvert.SerializeObject(user)
+            //    , Encoding.UTF8, "application/json");
 
-            var client = _client.CreateClient();
-            HttpResponseMessage response = await client.SendAsync(request);
+            //var client = _client.CreateClient();
+            //HttpResponseMessage response = await client.SendAsync(request);
+
+            var json = JsonConvert.SerializeObject(user);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var httpClient = _client.CreateClient();
+            var response = await httpClient.PostAsync(Endpoints.RegisterEndpoint, content);
 
             return response.IsSuccessStatusCode;
         }

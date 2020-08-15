@@ -119,16 +119,16 @@
             </summary>
             <param name="id"></param>
         </member>
-        <member name="M:BookStore_API.Controllers.UsersController.Login(BookStore_API.DTOs.UserDTO)">
+        <member name="M:BookStore_API.Controllers.UsersController.Register(BookStore_API.DTOs.UserDTO)">
             <summary>
-            User Login
+            User Registration Endpoint
             </summary>
             <param name="userDTO"></param>
             <returns></returns>
         </member>
-        <member name="M:BookStore_API.Controllers.UsersController.Register(BookStore_API.DTOs.UserDTO)">
+        <member name="M:BookStore_API.Controllers.UsersController.Login(BookStore_API.DTOs.UserDTO)">
             <summary>
-            User registration
+            User Login Endpoint
             </summary>
             <param name="userDTO"></param>
             <returns></returns>

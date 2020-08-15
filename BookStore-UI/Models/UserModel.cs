@@ -32,4 +32,5 @@ namespace BookStore_UI.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }
+
 }
