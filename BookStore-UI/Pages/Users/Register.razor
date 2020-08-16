@@ -1,18 +1,14 @@
 ﻿@page "/Register"
 
-@using BookStore_UI.Models
-@using BookStore_UI.Contracts
-
 @inject IAuthenticationRepository _authRepo
 @inject NavigationManager _navMan
-
+@inject IToastService _toastService
 
 <h3 class="card-title">Register Now</h3>
 @if (!response)
 {
-    <div class="alert alert-danger">
-        <p>Something went wrong with the registration attempt</p>
-    </div>
+    <ErrorMessage Message="Something went wrong with the registration attempt" />
+
 }
 <div class="card-body">
     <EditForm Model="Model" OnValidSubmit="HandleRegistration">
@@ -50,6 +46,7 @@
         if (response)
         {
             _navMan.NavigateTo("/login");
+            //_toastService.ShowSuccess("Successful registration.");
         }
     }
 }

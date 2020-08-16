@@ -16,7 +16,9 @@ namespace BookStore_API.Controllers
     /// Endpoint used to interact with the Authors in the Book Store's Database
     /// </summary>
     [Route("api/[controller]")]
-    [ApiController]    
+    [ApiController]  
+    [Authorize]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public class AuthorsController : ControllerBase
     {
         private readonly IAuthorRepository _authorRepository;

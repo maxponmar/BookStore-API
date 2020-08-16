@@ -1,19 +1,14 @@
 ﻿@page "/login"
 
-@using BookStore_UI.Models
-@using BookStore_UI.Contracts
-
 @inject IAuthenticationRepository _authRepo
 @inject NavigationManager _navManager
+@inject IToastService _toastService
 
 
 <h3 class="card-title">Login</h3>
 @if (!response)
 {
-    @*<ErrorMessage Message="Something went wrong with the login attempt" />*@
-    <div class="alert alert-danger">
-        <p>Something went wrong with the login attempt</p>
-    </div>
+    <ErrorMessage Message="Something went wrong with the login attempt" />
 }
 <div class="card-body">
     <EditForm Model="Model" OnValidSubmit="HandleLogin">
@@ -47,6 +42,11 @@
         if (response)
         {
             _navManager.NavigateTo("/");
+            //_toastService.ShowSuccess("Logged successfully.");
+        }
+        else
+        {
+            //_toastService.ShowWarning("Something went wrong, please verify your credentials.");
         }
 
     }

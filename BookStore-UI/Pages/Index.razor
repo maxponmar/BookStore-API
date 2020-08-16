@@ -1,7 +1,26 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@*<SurveyPrompt Title="How is Blazor working for you?" />*@
 
-Welcome to your new app.
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light img-bckg">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Book Store</h1>        
+        <AuthorizeView>
+            <NotAuthorized>
+                <p class="lead font-weight-normal">
+                    Register your account or login to see our content!
+                </p>
+                <a class="btn btn-outline-primary" href="/register">Register now</a>
+                <a class="btn btn-outline-secondary" href="/login">Login</a>
+            </NotAuthorized>
+            <Authorized>
+                <p class="lead font-weight-normal">
+                    Welcome to your favourite book store.
+                </p>
+                <a class="btn btn-outline-secondary" href="/authors">See Authors</a>
+                <a class="btn btn-outline-secondary" href="/books">See Books</a>
+            </Authorized>
+        </AuthorizeView>   
+    </div>    
+</div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />

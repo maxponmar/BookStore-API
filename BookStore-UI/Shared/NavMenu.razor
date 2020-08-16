@@ -14,16 +14,49 @@
                         <span class="oi oi-person" aria-hidden="true"></span> @context.User.Identity.Name
                     </NavLink>
                 </li>
+            </Authorized>
+        </AuthorizeView>
+        <AuthorizeView Roles="Administrator">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link">
+                    <span class="oi oi-key" aria-hidden="true"></span> ADMIN
+                </NavLink>
+            </li>
+        </AuthorizeView>
+        <AuthorizeView Roles="Customer">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link">
+                    <span class="oi oi-briefcase" aria-hidden="true"></span> CUSTOMER
+                </NavLink>
+            </li>
+        </AuthorizeView>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+        <AuthorizeView>
+            <Authorized>
+                <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="authors/">
+                        <span class="oi oi-book" aria-hidden="true"></span> Authors
+                    </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="books/">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> Books
+                    </NavLink>
+                </li>
                 <li class="nav-item px-3">
                     <NavLink class="nav-link" href="logout">
-                        <span class="oi oi-arrow-circle-left" aria-hidden="true"></span> Log Out
+                        <span class="oi oi-account-logout" aria-hidden="true"></span> Log Out
                     </NavLink>
                 </li>
             </Authorized>
             <NotAuthorized>
                 <li class="nav-item px-3">
                     <NavLink class="nav-link" href="login">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Login
+                        <span class="oi oi-account-login" aria-hidden="true"></span> Login
                     </NavLink>
                 </li>
                 <li class="nav-item px-3">
@@ -32,35 +65,6 @@
                     </NavLink>
                 </li>
             </NotAuthorized>
-        </AuthorizeView>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="authors/">
-                <span class="oi oi-plus" aria-hidden="true"></span> Authors
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="books/">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Books
-            </NavLink>
-        </li>
-        <AuthorizeView Roles="Administrator">
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="books">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> ADMIN LINK
-                </NavLink>
-            </li>
-        </AuthorizeView>
-        <AuthorizeView Roles="Customer">
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="books">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> CUSTOMER LINK
-                </NavLink>
-            </li>
         </AuthorizeView>
     </ul>
 </div>
