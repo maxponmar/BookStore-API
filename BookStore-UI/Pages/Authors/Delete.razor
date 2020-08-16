@@ -90,7 +90,7 @@ else
         isSuccess = await _repo.Delete(Endpoints.AuthorsEndpoint, Model.Id);
         if (isSuccess)
         {
-            //_toastService.ShowError("Author Deleted Successfully", "");
+            _toastService.ShowError("Author Deleted Successfully", "");
             BackToList();
         }
     }

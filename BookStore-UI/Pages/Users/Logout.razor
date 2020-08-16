@@ -9,6 +9,6 @@
     {
         await _authRepo.Logout();
         _navManager.NavigateTo("/");
-        //_toastService.ShowSuccess("Logged out.");
+        _toastService.ShowWarning("Logged out.", "");
     }
 }

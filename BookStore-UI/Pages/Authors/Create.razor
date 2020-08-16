@@ -49,7 +49,7 @@
         isSuccess = await _repo.Create(Endpoints.AuthorsEndpoint, Model);
         if (isSuccess)
         {
-            //_toastService.ShowSuccess("Author Created Successfully", "");
+            _toastService.ShowSuccess("Author Created Successfully", "");
             BackToList();
         }
     }

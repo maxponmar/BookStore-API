@@ -65,7 +65,7 @@ else
         isSuccess = await _repo.Update(Endpoints.AuthorsEndpoint, Model, Model.Id);
         if (isSuccess)
         {
-            //_toastService.ShowWarning("Author Updated Successfully", "");
+            _toastService.ShowWarning("Author Updated Successfully", "");
             BackToList();
         }
 

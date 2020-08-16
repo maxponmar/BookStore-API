@@ -42,11 +42,11 @@
         if (response)
         {
             _navManager.NavigateTo("/");
-            //_toastService.ShowSuccess("Logged successfully.");
+            _toastService.ShowSuccess("Logged successfully.", "");
         }
         else
         {
-            //_toastService.ShowWarning("Something went wrong, please verify your credentials.");
+            _toastService.ShowWarning("Something went wrong, please verify your credentials.", "");
         }
 
     }
